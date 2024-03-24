@@ -1,0 +1,105 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Sep的广告</title>  
+    <style>  
+        .ad-container {  
+            width: 300px;  
+            border: 1px solid #ccc;  
+            padding: 10px;  
+            margin-bottom: 20px;  
+            position: relative;  
+            text-align: center;  
+        }  
+          
+        .ad {  
+            display: none;  
+            padding: 10px;  
+            box-sizing: border-box;  
+        }  
+          
+        .ad-image {  
+            width: 100%;  
+            height: auto;  
+            display: block;  
+            margin: 0 auto 10px;  
+        }  
+          
+        .control-buttons {  
+            margin-top: 10px;  
+        }  
+          
+        button {  
+            padding: 5px 10px;  
+            cursor: pointer;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <div class="ad-container">  
+        <div class="ad" id="ad1">  
+            <img src="https://ice.frostsky.com/2024/03/24/6378b15e578c39ac1ac61d4d728dabd8.png" alt="广告 1 图片" class="ad-image">  
+            <h2>Sep的第四周总结</h2> 
+	    <h5>2024/3/24</h5>  
+            <p>关于我的第四周总结</p>  
+        </div>  
+        <div class="ad" id="ad2">  
+            <img src="https://www.pcgamesn.com/wp-content/uploads/2019/08/minecraft-houses.jpg" alt="广告 2 图片" class="ad-image">  
+            <h2>Sep的博客已于3/23上线</h2>  
+	    <h5>2024/3/23</h5>
+            <p>鉴于一个博客无法存放过多文章，本人已于2024/3/24开发专门用于题库的<a href="https://minecraftseppr.github.io/">博客</a>，欢迎尝鲜！</p>  
+        </div>  
+        <div class="ad" id="ad3">  
+            <img src="https://ice.frostsky.com/2024/03/24/6d09d48ada29d5af32b98e9def94af13.png" alt="广告3图片" class="ad-image">  
+            <h2>“关于”页面正在修复中......</h2> 
+	    <h5>2024/3/15</h5>  
+            <p>自3/11博客上线后，“关于”页面出现问题无法访问，正在修复中......</p>  
+        </div>  
+        <!-- 可以添加更多广告内容 -->  
+        <div class="control-buttons">  
+            <button id="prevAd">上一个</button>  
+            <button id="nextAd">下一个</button>  
+        </div>  
+    </div>  
+  
+    <script>  
+        var currentIndex = 0; // 当前显示的广告索引  
+        var ads = document.querySelectorAll('.ad'); // 获取所有广告元素  
+        var adCount = ads.length; // 广告数量  
+          
+        function showAd(index) {  
+            // 隐藏所有广告  
+            ads.forEach(function(ad) {  
+                ad.style.display = 'none';  
+            });  
+              
+            // 确保索引在有效范围内  
+            index = Math.max(0, Math.min(index, adCount - 1));  
+              
+            // 显示当前广告  
+            ads[index].style.display = 'block';  
+              
+            // 更新当前索引  
+            currentIndex = index;  
+        }  
+          
+        window.onload = function() {  
+            // 初始显示随机广告  
+            var randomIndex = Math.floor(Math.random() * adCount);  
+            showAd(randomIndex);  
+              
+            // 添加“上一个”按钮的点击事件监听器  
+            document.getElementById('prevAd').addEventListener('click', function() {  
+                showAd(currentIndex - 1);  
+            });  
+              
+            // 添加“下一个”按钮的点击事件监听器  
+            document.getElementById('nextAd').addEventListener('click', function() {  
+                showAd(currentIndex + 1);  
+            });  
+        };  
+    </script>  
+</body>  
+</html>

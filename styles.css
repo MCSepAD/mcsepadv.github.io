@@ -1,0 +1,37 @@
+.ad-container {  
+    width: 300px;  
+    border: 1px solid #ccc;  
+    padding: 10px;  
+    margin-bottom: 20px;  
+    position: relative; /* 允许子元素使用绝对定位 */  
+    text-align: center; /* 水平居中容器内的文本 */  
+}  
+  
+.ad {  
+    display: flex; /* 使用Flexbox布局 */  
+    flex-direction: column; /* 垂直方向排列子元素 */  
+    justify-content: center; /* 垂直居中子元素 */  
+    align-items: center; /* 水平居中子元素（如果有多行文本或水平排列的元素） */  
+    display: none; /* 默认情况下隐藏所有广告 */  
+    position: relative; /* 允许图片绝对定位 */  
+    padding: 10px; /* 为广告内容添加内边距 */  
+    box-sizing: border-box; /* 确保内边距不会增加广告的总宽度 */  
+}
+  
+.ad.active {  
+    display: block; /* 显示当前活动的广告 */  
+}  
+  
+.ad-image {  
+    width: 100%; /* 图片宽度与广告容器相同 */  
+    height: auto; /* 图片高度自动调整以保持比例 */  
+    display: block; /* 消除图片底部的默认间距 */  
+    margin: 0 auto 10px; /* 图片上下外边距为0，左右外边距自动以水平居中 */  
+}  
+  
+button {  
+    padding: 5px 10px;  
+    cursor: pointer;  
+    margin: 0 auto; /* 水平居中按钮 */  
+    display: block; /* 将按钮显示为块级元素，以便应用margin */  
+}
